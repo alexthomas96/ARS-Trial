@@ -1,0 +1,33 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name = "ars.beans.Ticket" table = "ticket">
+      
+      <meta attribute = "class-description">
+         This class contains the ticket details. 
+      </meta>
+      
+      <id name = "ticketID" type = "java.lang.Long" column = "ticketID">
+         <generator class="increment"/>
+      </id>
+      
+      <property name = "flightLinkID" column = "flightLinkID" type = "java.lang.Long"/>
+      <property name = "detailsLinkID" column = "detailsLinkID" type = "java.lang.Long"/>
+      <property name = "userLinkID" column = "userLinkID" type = "java.lang.Long"/>
+      
+      <property name="seatClass" column="seatClass">
+      <type name="org.hibernate.type.EnumType">
+        	<param name="enumClass">ars.enums.seatClass</param>
+       		<param name="useNamed">true</param> 
+    	</type>
+	  </property>
+	  
+	  <property name = "seatNo" column = "seatNo" type = "java.lang.Long"/>
+      <property name = "fare" column = "fare" type = "java.lang.Long"/>
+     
+   </class>
+
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name = "ars.secondarybeans.AircraftSeats" table = "aircraftseats">
+      
+      <meta attribute = "class-description">
+         This class contains the aircraft seat class details. 
+      </meta>
+      
+      <id name = "aircraftseatsID" type = "java.lang.Integer" column = "aircraftseatsID">
+         <generator class="increment"/>
+      </id>
+      
+      <property name = "seats" column = "seats" type = "java.lang.Integer"/>
+     
+    </class>
+
+</hibernate-mapping>

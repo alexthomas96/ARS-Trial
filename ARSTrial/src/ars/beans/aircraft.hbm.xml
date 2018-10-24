@@ -1,0 +1,31 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name = "ars.beans.Aircraft" table = "aircraft">
+      
+      <meta attribute = "class-description">
+         This class contains the aircraft details. 
+      </meta>
+      
+      <id name = "aircraftID" type = "java.lang.Long" column = "aircraftID">
+         <generator class="increment"/>
+      </id>
+      
+      <property name = "manufacturerName" column = "manufacturerName" type = "string"/>
+      <property name = "modelName" column = "modelName" type = "string"/>
+      
+      <property name = "airlineLinkID" column = "airlineLinkID" type ="java.lang.Long"/>
+      <property name = "flightLinkID" column = "flightLinkID" type ="java.lang.Long"/>
+      
+      <list name = "seats" cascade="all">
+         <key column = "aircraftID"/>
+         <list-index column = "seatsIndexID"/>
+         <one-to-many class="ars.secondarybeans.AircraftSeats"/>
+      </list>
+      
+   </class>
+
+</hibernate-mapping>

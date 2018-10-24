@@ -1,0 +1,46 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name = "ars.beans.PersonalDetails" table = "personaldetails">
+      
+      <meta attribute = "class-description">
+         This class contains the personal details of a user. 
+      </meta>
+      
+      <id name = "detailsID" type = "java.lang.Long" column = "detailsID">
+         <generator class="increment"/>
+      </id>
+      
+      <property name = "firstName" column = "firstName" type = "string"/>
+      <property name = "lastName" column = "lastName" type = "string"/>
+      
+      <property name="ageGroup" column="ageGroup">
+      <type name="org.hibernate.type.EnumType">
+        	<param name="enumClass">ars.enums.ageGroup</param>
+       		<param name="useNamed">true</param> 
+    	</type>
+	  </property>
+      
+      <property name="sex" column="sex">
+      <type name="org.hibernate.type.EnumType">
+        	<param name="enumClass">ars.enums.sex</param>
+       		<param name="useNamed">true</param> 
+    	</type>
+	  </property>
+	  
+	  <property name="idType" column="idType">
+      <type name="org.hibernate.type.EnumType">
+        	<param name="enumClass">ars.enums.idType</param>
+       		<param name="useNamed">true</param> 
+    	</type>
+	  </property>
+      
+      <property name = "idNo" column = "idNo" type = "string"/>
+      <property name = "userLinkID" column = "userLinkID" type ="java.lang.Long"/>
+      <property name = "ticketLinkID" column = "ticketLinkID" type ="java.lang.Long"/>
+   </class>
+
+</hibernate-mapping>

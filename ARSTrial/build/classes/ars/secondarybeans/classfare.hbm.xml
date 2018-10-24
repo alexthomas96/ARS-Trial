@@ -1,0 +1,21 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name = "ars.secondarybeans.ClassFare" table = "classfare">
+      
+      <meta attribute = "class-description">
+         This class contains the class fare details. 
+      </meta>
+      
+      <id name = "classfareID" type = "java.lang.Integer" column = "classfareID">
+         <generator class="increment"/>
+      </id>
+     
+      <property name = "fare" column = "fare" type = "java.lang.Integer"/>
+      
+   </class>
+
+</hibernate-mapping>

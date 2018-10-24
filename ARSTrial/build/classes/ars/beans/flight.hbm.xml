@@ -1,0 +1,56 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name = "ars.beans.Flight" table = "flight">
+      
+      <meta attribute = "class-description">
+         This class contains the flight details. 
+      </meta>
+      
+      <id name = "flightID" type = "java.lang.Long" column = "flightID">
+         <generator class="increment"/>
+      </id>
+      
+      <property name = "aircraftLinkID" column = "aircraftLinkID" type ="java.lang.Long"/>
+      <property name="departTime" type="timestamp"/>
+      <property name="arriveTime" type="timestamp"/>
+      <property name = "departCode" column = "departCode" type = "string"/>
+      <property name = "arriveCode" column = "arriveCode" type = "string"/>
+      
+      <property name="flightStatus" column="flightStatus">
+      <type name="org.hibernate.type.EnumType">
+        	<param name="enumClass">ars.enums.flightStatus</param>
+       		<param name="useNamed">true</param> 
+    	</type>
+	  </property>
+      
+      <property name="flightType" column="flightType">
+      <type name="org.hibernate.type.EnumType">
+        	<param name="enumClass">ars.enums.flightType</param>
+       		<param name="useNamed">true</param> 
+    	</type>
+	  </property>
+	  
+       <list name = "seatsLeft" cascade="all">
+         <key column = "flightID"/>
+         <list-index column = "seatsLeftIndexID"/>
+         <one-to-many class="ars.secondarybeans.FlightSeats"/>
+      </list>
+      
+      <list name = "ageFare" cascade="all">
+         <key column = "flightID"/>
+         <list-index column = "ageFareIndexID"/>
+         <one-to-many class="ars.secondarybeans.AgeFare"/>
+      </list>
+      
+      <list name = "classFare" cascade="all">
+         <key column = "flightID"/>
+         <list-index column = "classFareIndexID"/>
+         <one-to-many class="ars.secondarybeans.ClassFare"/>
+      </list>
+   </class>
+
+</hibernate-mapping>

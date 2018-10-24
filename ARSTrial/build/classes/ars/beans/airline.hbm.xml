@@ -1,0 +1,23 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name = "ars.beans.Airline" table = "airline">
+      
+      <meta attribute = "class-description">
+         This class contains the airline details. 
+      </meta>
+      
+      <id name = "airlineID" type = "java.lang.Long" column = "airlineID">
+         <generator class="increment"/>
+      </id>
+      
+      <property name = "airlineName" column = "airlineName" type = "string"/>
+      <property name = "latestOffer" column = "latestOffer" type = "string"/>
+      <property name = "airlineCode" column = "airlineCode" type = "string"/>
+      
+   </class>
+
+</hibernate-mapping>

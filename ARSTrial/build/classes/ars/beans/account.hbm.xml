@@ -1,0 +1,49 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name = "ars.beans.Account" table = "account">
+      
+      <meta attribute = "class-description">
+         This class contains the account details. 
+      </meta>
+      
+      <id name = "accountID" type = "java.lang.Long" column = "accountID">
+         <generator class="increment"/>
+      </id>
+      
+      <property name="bank" column="bank">
+      <type name="org.hibernate.type.EnumType">
+        	<param name="enumClass">ars.enums.bank</param>
+       		<param name="useNamed">true</param> 
+    	</type>
+	  </property>
+      
+      <property name = "netID" column = "netID" type = "java.lang.Long"/>
+      <property name = "netPass" column = "netPass" type = "string"/>
+      
+      <property name="paymentPlatform" column="paymentPlatform">
+      <type name="org.hibernate.type.EnumType">
+        	<param name="enumClass">ars.enums.paymentPlatform</param>
+       		<param name="useNamed">true</param> 
+    	</type>
+	  </property>
+	  
+	  <property name="cardType" column="cardType">
+      <type name="org.hibernate.type.EnumType">
+        	<param name="enumClass">ars.enums.cardType</param>
+       		<param name="useNamed">true</param> 
+    	</type>
+	  </property>
+	  
+	  <property name = "cardNo" column = "cardNo" type = "java.lang.Long"/>
+	  <property name = "cvv" column = "cvv" type = "int"/>
+      <property name="expiryDate" type="timestamp"/>
+      <property name = "balance" column = "balance" type = "double"/>
+      
+      <property name = "userLinkID" column = "userLinkID" type ="java.lang.Long"/>
+   </class>
+
+</hibernate-mapping>

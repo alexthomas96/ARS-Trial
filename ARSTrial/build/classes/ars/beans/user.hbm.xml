@@ -1,0 +1,38 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name = "ars.beans.User" table = "user">
+      
+      <meta attribute = "class-description">
+         This class contains the user details. 
+      </meta>
+      
+      <id name = "userID" type = "java.lang.Long" column = "userID">
+         <generator class="increment"/>
+      </id>
+      
+      <property name = "username" column = "username" type = "string"/>
+      <property name = "password" column = "password" type = "string"/>
+      <!-- 
+      <list name = "tickets" cascade="all">
+         <key column = "userID"/>
+         <list-index column = "userIndex"/>  
+          <one-to-many class="java.lang.String"/>
+      </list>
+       -->
+      <property name="userType" column="userType">
+      <type name="org.hibernate.type.EnumType">
+        	<param name="enumClass">ars.enums.user</param>
+       		<param name="useNamed">true</param> 
+    	</type>
+	  </property>
+	  
+	  <property name = "accountLinkID" column = "accountLinkID" type ="java.lang.Long"/>
+      <property name = "detailsLinkID" column = "detailsLinkID" type ="java.lang.Long"/>
+ 
+   </class>
+
+</hibernate-mapping>
